@@ -1,0 +1,71 @@
+[
+  {
+    "id": "novacrm",
+    "title": "NovaCRM - CRM SaaS Automatisé par IA",
+    "subtitle": "Solution SaaS d'automatisation des ventes et d'analyse prédictive",
+    "category": "fullstack",
+    "description": "Une plateforme SaaS moderne utilisant l'intelligence artificielle pour automatiser les ventes, qualifier les leads et fournir des analyses prédictives en temps réel.",
+    "longDescription": "NovaCRM réinvente la gestion de la relation client. En intégrant des agents d'intelligence artificielle, l'application qualifie automatiquement les leads en fonction de leur comportement, génère des emails de suivi personnalisés, et analyse le sentiment des interactions clients. L'interface propose un pipeline de vente interactif en glisser-déposer et des tableaux de bord dynamiques hautement optimisés.",
+    "tech": ["React.js", "Node.js", "Express", "MongoDB", "Socket.io", "OpenAI API", "Redis"],
+    "features": [
+      "Pipeline de vente visuel et interactif en glisser-déposer (Kanban)",
+      "Génération automatique d'emails de relance personnalisés via GPT-4",
+      "Tableaux de bord analytiques en temps réel avec graphiques interactifs",
+      "Qualification automatique et scoring intelligent des leads",
+      "Architecture de notifications instantanées via WebSockets"
+    ],
+    "challenges": "Le défi principal résidait dans le traitement en temps réel de volumes importants de données transactionnelles sans ralentir l'interface utilisateur. J'ai résolu ce problème en mettant en place une architecture orientée événements avec Socket.io, en optimisant les index MongoDB et en ajoutant une couche de mise en cache Redis pour les requêtes analytiques fréquentes. Cela a réduit la latence de chargement globale de 65%.",
+    "results": "Déployé avec succès pour 12 entreprises partenaires, entraînant une hausse moyenne de 30% du taux de conversion des leads et un gain de temps estimé à 10 heures par semaine et par agent.",
+    "links": {
+      "github": "https://github.com/example/novacrm",
+      "demo": "https://novacrm-demo.example.com"
+    },
+    "color": "from-blue-600 to-indigo-600"
+  },
+  {
+    "id": "auraengine",
+    "title": "AuraEngine - Générateur de Sites Statiques en Rust",
+    "subtitle": "Parser Markdown ultra-rapide et compilateur de documentation",
+    "category": "backend",
+    "description": "Un générateur de sites statiques haute performance écrit en Rust, axé sur la vitesse de compilation et la conformité stricte du Markdown.",
+    "longDescription": "AuraEngine est un outil en ligne de commande (CLI) ultra-rapide conçu pour compiler des milliers de fichiers Markdown en sites de documentation HTML structurés et optimisés pour le SEO en moins de 10 millisecondes. Il inclut un serveur de développement local avec rechargement à chaud (Hot-Reloading), un moteur de recherche plein texte côté client pré-indexé, et un support pour le rendu hybride WebAssembly.",
+    "tech": ["Rust", "WebAssembly", "HTML5", "CSS Modules", "GitHub Actions", "Shell Scripting"],
+    "features": [
+      "Compilation de plus de 1000 pages en moins d'une seconde",
+      "Serveur local intégré avec rafraîchissement instantané (Live Reload)",
+      "Moteur de recherche plein texte ultra-léger et pré-indexé côté client",
+      "Génération automatique de plans de site XML et de flux RSS optimisés pour le SEO",
+      "Système de templates personnalisables basé sur Tera (moteur de rendu proche de Jinja)"
+    ],
+    "challenges": "Le défi principal a été de concevoir un système de routage et de rendu concurrent qui exploite pleinement le multithreading en Rust sans causer de blocages mémoire (data races). En utilisant la bibliothèque rayon pour le traitement parallèle des fichiers et en structurant l'état avec des pointeurs intelligents Arc et des Mutex légers, le projet est parvenu à des performances de compilation inégalées.",
+    "results": "Projet Open-Source ayant accumulé plus de 850 étoiles sur GitHub, utilisé par plusieurs équipes pour générer leur documentation technique de façon plus rapide qu'avec des outils Node.js traditionnels.",
+    "links": {
+      "github": "https://github.com/example/auraengine",
+      "demo": "https://auraengine-demo.example.com"
+    },
+    "color": "from-purple-600 to-pink-600"
+  },
+  {
+    "id": "orbit3d",
+    "title": "Orbit3D - Simulateur Orbital Interactif",
+    "subtitle": "Visualisation 3D temps réel du système solaire et des satellites en orbite",
+    "category": "frontend",
+    "description": "Une simulation physique interactive en 3D dans le navigateur, modélisant les corps célestes et les trajectoires orbitales de satellites réels.",
+    "longDescription": "Orbit3D est une vitrine technologique de rendu WebGL immersif. Le simulateur intègre des équations de mécanique orbitale réelles pour animer les planètes et satellites autour du Soleil. L'utilisateur peut manipuler la caméra à 360°, accélérer le temps, inspecter les détails physiques de chaque astre et suivre la trajectoire en temps réel de satellites grâce aux données TLE fournies par la NASA.",
+    "tech": ["JavaScript (ES6+)", "Three.js", "WebGL", "GSAP", "HTML5 Canvas", "TailwindCSS"],
+    "features": [
+      "Rendu 3D photoréaliste avec textures 8K, shaders personnalisés et effets d'atmosphère",
+      "Modélisation physique rigoureuse des orbites (lois de Kepler)",
+      "Intégration d'API en temps réel pour charger la position de satellites terrestres réels (NORAD)",
+      "Interface utilisateur HUD (Heads-Up Display) futuriste et entièrement réactive",
+      "Optimisation des calculs matriciels dans les shaders GLSL pour maintenir 60 FPS constants"
+    ],
+    "challenges": "La gestion du rendu fluide de dizaines de milliers de points de trajectoires orbitales simultanément posait un problème de performance sur les GPU d'entrée de gamme. La solution a été d'écrire des shaders de vertex personnalisés en GLSL et d'utiliser le rendu d'instances géométriques (Instanced Mesh), déchargeant ainsi totalement le thread JavaScript principal.",
+    "results": "Sélectionné comme projet de la semaine sur plusieurs plateformes de veille design et utilisé par des professeurs de physique pour illustrer de façon interactive la mécanique spatiale.",
+    "links": {
+      "github": "https://github.com/example/orbit3d",
+      "demo": "https://orbit3d-demo.example.com"
+    },
+    "color": "from-emerald-500 to-teal-500"
+  }
+]
