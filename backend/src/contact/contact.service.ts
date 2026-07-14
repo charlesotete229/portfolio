@@ -6,12 +6,17 @@ import * as nodemailer from 'nodemailer';
 export class ContactService {
   async handleContact(contact: CreateContactDto): Promise<void> {
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // STARTTLS, pas SSL direct
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
       },
-      family: 4 // Force IPv4 : évite ENETUNREACH sur Render (pas de sortie IPv6)
+      family: 4, // Force IPv4 : évite ENETUNREACH sur Render
+      connectionTimeout: 15000, // 15s pour établir la connexion
+      greetingTimeout: 15000,
+      socketTimeout: 20000
     });
 
     await transporter.sendMail({
