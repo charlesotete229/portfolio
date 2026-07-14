@@ -1,26 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateContactDto } from './dto/create-contact.dto';
-import * as nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 @Injectable()
 export class ContactService {
-  async handleContact(contact: CreateContactDto): Promise<void> {
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false, // STARTTLS, pas SSL direct
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-      },
-      family: 4, // Force IPv4 : évite ENETUNREACH sur Render
-      connectionTimeout: 15000, // 15s pour établir la connexion
-      greetingTimeout: 15000,
-      socketTimeout: 20000
-    });
+  private resend = new Resend(process.env.RESEND_API_KEY);
 
-    await transporter.sendMail({
-      from: `"Portfolio" <charles.otet@gmail.com>`,
+  async handleContact(contact: CreateContactDto): Promise<void> {
+    const { data, error } = await this.resend.emails.send({
+      from: 'Portfolio <onboarding@resend.dev>', // domaine de test Resend, pas besoin de vérification
       to: 'charles.otet@gmail.com',
       replyTo: contact.email,
       subject: `Portfolio - Message de ${contact.name}`,
@@ -33,6 +21,11 @@ export class ContactService {
       `
     });
 
-    console.log('Email envoyé depuis :', contact.email);
+    if (error) {
+      console.error('Erreur Resend:', error);
+      throw new Error(`Échec de l'envoi de l'email: ${error.message}`);
+    }
+
+    console.log('Email envoyé, ID Resend:', data?.id);
   }
 }
