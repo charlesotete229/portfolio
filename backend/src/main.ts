@@ -1,7 +1,10 @@
 import 'dotenv/config';
+import * as dns from 'dns';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+
+dns.setDefaultResultOrder('ipv4first'); // Évite ENETUNREACH sur Render (pas de sortie IPv6)
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

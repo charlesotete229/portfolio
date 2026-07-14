@@ -10,7 +10,8 @@ export class ContactService {
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
-      }
+      },
+      family: 4 // Force IPv4 : évite ENETUNREACH sur Render (pas de sortie IPv6)
     });
 
     await transporter.sendMail({
