@@ -583,6 +583,12 @@ section {
   gap: 2rem;
 }
 
+/* Center grid when few projects are present */
+.projects-grid.centered {
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+}
+
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);

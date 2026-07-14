@@ -125,6 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderProjects(projects) {
     projectsGrid.innerHTML = '';
+    // If there are few projects, center them with a fixed column width
+    if (projects.length <= 2) {
+      projectsGrid.classList.add('centered');
+    } else {
+      projectsGrid.classList.remove('centered');
+    }
     
     if (projects.length === 0) {
       projectsGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Aucun projet trouvé dans cette catégorie.</p>`;
