@@ -535,7 +535,9 @@ document.addEventListener('DOMContentLoaded', () => {
         message: messageEl.value.trim(),
       };
 
-      fetch('http://localhost:3000/api/contact', {
+      const apiUrl = `${window.API_BASE_URL.replace(/\/+$/, '')}/api/contact`;
+
+      fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
