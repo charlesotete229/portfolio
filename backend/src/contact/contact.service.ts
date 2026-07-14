@@ -9,7 +9,7 @@ export class ContactService {
   async handleContact(contact: CreateContactDto): Promise<void> {
     const { data, error } = await this.resend.emails.send({
       from: 'Portfolio <onboarding@resend.dev>', // domaine de test Resend, pas besoin de vérification
-      to: 'charles.otet@gmail.com',
+      to: 'otetecharles315@gmail.com',
       replyTo: contact.email,
       subject: `Portfolio - Message de ${contact.name}`,
       html: `
