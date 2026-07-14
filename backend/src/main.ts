@@ -11,8 +11,9 @@ async function bootstrap() {
     allowedHeaders: ['Content-Type'],
   });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
-  await app.listen(3000, '0.0.0.0');
-  console.log('Backend Nest.js démarré sur http://localhost:3000');
+  const port = process.env.PORT || 3000;
+  await app.listen(port, '0.0.0.0');
+  console.log(`Backend Nest.js démarré sur le port ${port}`);
 }
 
 bootstrap();
